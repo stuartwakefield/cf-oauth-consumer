@@ -166,7 +166,7 @@
 	</cffunction>
 	<cffunction name="generateTimeStamp" returntype="string"
 				output="false">
-		<cfreturn DateDiff( "s", CreateDate( 1970, 1, 1 ), Now( ) )/>
+		<cfreturn DateDiff( "s", DateConvert( "utc2Local", "January 1 1970 00:00" ), Now( ) )/>
 	</cffunction>
 
 </cfcomponent>
