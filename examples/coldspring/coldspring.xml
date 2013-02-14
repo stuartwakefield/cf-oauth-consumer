@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC
+	"-//SPRING//DTD BEAN//EN"
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans default-autowire="byName">
+	
+	<bean id="Signer" class="oauth.com.HMACSHA1Signer" singleton="true"/>
+	
+	<bean id="TwitterConsumer" class="oauth.com.Consumer" singleton="true">
+		<property name="serviceProviderRealm">
+			<value>${twitterRealm}</value>
+		</property>
+		<property name="consumerKey">
+			<value>${twitterConsumerKey}</value>
+		</property>
+		<property name="consumerSecret">
+			<value>${twitterConsumerSecret}</value>
+		</property>
+		<property name="signer">
+			<ref bean="Signer"/>
+		</property>
+	</bean>
+	
+</beans>
